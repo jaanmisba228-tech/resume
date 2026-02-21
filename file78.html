@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My E-Commerce Store</title>
+<title>Ajaz Hussain E-Commerce</title>
 
 <style>
 body {
@@ -13,14 +13,14 @@ body {
 }
 
 header {
-    background: #222;
+    background: #111;
     color: white;
     padding: 15px;
     text-align: center;
 }
 
 nav {
-    background: #333;
+    background: #222;
     padding: 10px;
     text-align: center;
     position: sticky;
@@ -55,13 +55,9 @@ nav a:hover {
 
 .product img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     border-radius: 5px;
-}
-
-.product h3 {
-    margin: 10px 0;
 }
 
 .price {
@@ -90,12 +86,29 @@ button:hover {
     border-radius: 8px;
 }
 
+.whatsapp-btn {
+    display: block;
+    width: 220px;
+    margin: 20px auto;
+    padding: 12px;
+    text-align: center;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebd5a;
+}
+
 footer {
-    background: #222;
+    background: #111;
     color: white;
     text-align: center;
     padding: 15px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 </style>
 </head>
@@ -103,36 +116,36 @@ footer {
 <body>
 
 <header>
-    <h1>ajaz hussain</h1>
+    <h1>Ajaz Hussain E-Commerce</h1>
 </header>
 
 <nav>
     <a href="#">Home</a>
-    <a href="#products">Products</a>
+    <a href="#products">Shoes</a>
     <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
 </nav>
 
 <section class="products" id="products">
 
 <div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="">
-    <h3>T-Shirt</h3>
-    <p class="price">₹499</p>
-    <button onclick="addToCart(499)">Add to Cart</button>
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Shoes">
+    <h3>Running Shoes</h3>
+    <p class="price">₹1499</p>
+    <button onclick="addToCart(1499)">Add to Cart</button>
 </div>
 
 <div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="">
-    <h3>Shoes</h3>
+    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Shoes">
+    <h3>Sports Shoes</h3>
+    <p class="price">₹1999</p>
+    <button onclick="addToCart(1999)">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="https://images.unsplash.com/photo-1528701800489-20be3c6a5c35" alt="Shoes">
+    <h3>Casual Shoes</h3>
     <p class="price">₹1299</p>
     <button onclick="addToCart(1299)">Add to Cart</button>
-</div>
-
-<div class="product">
-    <img src="https://via.placeholder.com/300x200" alt="">
-    <h3>Watch</h3>
-    <p class="price">₹999</p>
-    <button onclick="addToCart(999)">Add to Cart</button>
 </div>
 
 </section>
@@ -144,8 +157,13 @@ footer {
     <button onclick="checkout()">Checkout</button>
 </section>
 
+<!-- WhatsApp Button -->
+<a href="https://wa.link/py3c2g" class="whatsapp-btn" target="_blank">
+Chat on WhatsApp
+</a>
+
 <footer>
-    <p>© <span id="year"></span> My E-Commerce Store</p>
+    <p>© <span id="year"></span> Ajaz Hussain E-Commerce</p>
 </footer>
 
 <script>
@@ -165,7 +183,7 @@ function checkout() {
     if(cartCount === 0) {
         alert("Your cart is empty!");
     } else {
-        alert("Thank you for your purchase!");
+        alert("Order placed successfully!");
         cartCount = 0;
         totalPrice = 0;
         document.getElementById("cart-count").textContent = 0;
@@ -179,4 +197,3 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
-
