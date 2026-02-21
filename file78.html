@@ -1,142 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Simple Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My E-Commerce Store</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
 
-        header {
-            background: #333;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-        }
+header {
+    background: #222;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
 
-        nav {
-            background: #444;
-            padding: 10px;
-            text-align: center;
-        }
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        nav a:hover {
-            color: #00c3ff;
-        }
+nav a:hover {
+    color: #00c3ff;
+}
 
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(to right, #00c3ff, #0072ff);
-            color: white;
-        }
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
 
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-        }
+.product {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-        .section h2 {
-            margin-bottom: 20px;
-        }
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #0072ff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+.product h3 {
+    margin: 10px 0;
+}
 
-        .btn:hover {
-            background: #0056cc;
-        }
+.price {
+    color: green;
+    font-weight: bold;
+    margin: 10px 0;
+}
 
-        form {
-            max-width: 400px;
-            margin: auto;
-        }
+button {
+    padding: 10px 20px;
+    background: #0072ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-        }
+button:hover {
+    background: #0056cc;
+}
 
-        button {
-            padding: 10px 20px;
-            background: #0072ff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+.cart {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
 
-        button:hover {
-            background: #0056cc;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 30px;
-        }
-    </style>
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>My Website</h1>
+    <h1>My Online Store</h1>
 </header>
 
 <nav>
     <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#products">Products</a>
+    <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
 </nav>
 
-<section class="hero">
-    <h2>welcome ajaz hussain</h2>
-    <p>This is a simple HTML website example.</p>
-    <a href="https://wa.link/py3c2g" class="btn" target="_blank">Chat on WhatsApp</a>
+<section class="products" id="products">
+
+<div class="product">
+    <img src="https://via.placeholder.com/300x200" alt="">
+    <h3>T-Shirt</h3>
+    <p class="price">₹499</p>
+    <button onclick="addToCart(499)">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="https://via.placeholder.com/300x200" alt="">
+    <h3>Shoes</h3>
+    <p class="price">₹1299</p>
+    <button onclick="addToCart(1299)">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="https://via.placeholder.com/300x200" alt="">
+    <h3>Watch</h3>
+    <p class="price">₹999</p>
+    <button onclick="addToCart(999)">Add to Cart</button>
+</div>
+
 </section>
 
-<section class="section" id="about">
-    <h2>About Us</h2>
-    <p>We create simple and clean websites using HTML and CSS.</p>
-</section>
-
-<section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+<section class="cart" id="cart">
+    <h2>Shopping Cart</h2>
+    <p>Total Items: <span id="items">0</span></p>
+    <p>Total Price: ₹<span id="total">0</span></p>
+    <button onclick="checkout()">Checkout</button>
 </section>
 
 <footer>
-    <p>© 2026 My Website | All Rights Reserved</p>
+    <p>© <span id="year"></span> My E-Commerce Store</p>
 </footer>
 
+<script>
+let cartCount = 0;
+let totalPrice = 0;
+
+function addToCart(price) {
+    cartCount++;
+    totalPrice += price;
+
+    document.getElementById("cart-count").textContent = cartCount;
+    document.getElementById("items").textContent = cartCount;
+    document.getElementById("total").textContent = totalPrice;
+}
+
+function checkout() {
+    if(cartCount === 0) {
+        alert("Your cart is empty!");
+    } else {
+        alert("Thank you for your purchase!");
+        cartCount = 0;
+        totalPrice = 0;
+        document.getElementById("cart-count").textContent = 0;
+        document.getElementById("items").textContent = 0;
+        document.getElementById("total").textContent = 0;
+    }
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
-
 </html>
-
-
